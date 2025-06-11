@@ -1,0 +1,11 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .icon {
+      fill: #F1C40F;
+    }
+  </style>
+  <rect width="80" height="80" fill="none"></rect>
+
+  <!-- Phone + city stylized icon -->
+  <path class="icon" d="M34 15c-2 0-4 1-5 3l-4 6c-1 1-1 3 0 5 3 6 8 12 14 17 6 5 11 8 17 10 2 1 4 0 5-1l5-5c2-2 2-4 1-6l-4-6c-1-2-3-3-5-3h-4c-1 0-2 1-3 2l-2 2c-3-2-5-4-7-6s-4-5-6-8l2-2c1-1 2-2 2-3v-4c0-2-1-4-3-5l-6-4c-1-1-3-1-5-1z"></path>
+</svg>
