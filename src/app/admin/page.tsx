@@ -54,6 +54,7 @@ export default function AdminPage() {
             ));
             setEditingTag(null);
             setError(null);
+            fetchTags();
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to update tag');
         }
@@ -103,12 +104,12 @@ export default function AdminPage() {
                     {tags.map((tag) => (
                         <div key={tag.id} className="flex items-center justify-between p-4 border rounded-lg">
                             {editingTag?.id === tag.id ? (
-                                <form onSubmit={handleUpdateTag} className="flex-1 flex items-center space-x-4">
+                                <form onSubmit={handleUpdateTag} className="flex-1 flex flex-row items-center space-x-4">
                                     <input
                                         type="text"
                                         value={editingTag.name}
                                         onChange={(e) => setEditingTag({ ...editingTag, name: e.target.value })}
-                                        className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                        className="p-2 h-10 block w-full bg-stone-100 rounded-md "
                                         required
                                     />
                                     <button

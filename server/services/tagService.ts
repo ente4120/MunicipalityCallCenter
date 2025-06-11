@@ -1,4 +1,5 @@
 import TagModel from '../models/Tag';
+import CallModel from '../models/Call';
 import { CallTag } from '../types';
 
 const DEFAULT_TAGS = [
@@ -33,19 +34,22 @@ export class TagService {
 
     static async updateTag(id: string, data: { name?: string; color?: string }): Promise<CallTag | null> {
         try {
-            const existingTag = await TagModel.findById(id);
+            const existingTag = await TagModel.findOne({ id: id });
             if (!existingTag) {
                 return null;
             }
 
+            // If name is being updated, update all calls that use this tag
+            if (data.name && data.name !== existingTag.name) {
+                await CallModel.updateMany(
+                    { 'tags.id': id },
+                    { $set: { 'tags.$.name': data.name } }
+                );
+            }
+
             return await TagModel.findByIdAndUpdate(
-                id,
+                existingTag._id,
                 data,
-                { 
-                    new: true, 
-                    runValidators: true,
-                    context: 'query'
-                }
             );
         } catch (error) {
             console.error('Error updating tag:', error);
