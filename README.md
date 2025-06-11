@@ -45,7 +45,7 @@ yarn install
 Create a `.env.local` file in the root directory with:
 ```
 MONGODB_URI=your_mongodb_uri
-NEXT_PUBLIC_API_URL=http://localhost:3001/api
+API_URL=http://localhost:3001/api
 ```
 
 4. Run the development server:
