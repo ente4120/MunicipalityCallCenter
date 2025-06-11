@@ -1,4 +1,4 @@
-import { CallTag } from "app/types";
+import { CallTag } from "@/app/types/call";
 import { useState } from "react";
 
 interface CallTagsProps {

@@ -1,4 +1,4 @@
-import { Call } from "@/types/calls";
+import { Call } from "@/app/types/call";
 import { useState } from "react";
 import NewCallDialog from "./calls/dialogs/NewCallDialog";
 import { createCallAPI } from "@/services/calls";
@@ -10,8 +10,8 @@ export default function Sidebar({ calls, setSelectedCall, updateCallsList }: { c
     const call: Call = {
       ...newCall,
       id: calls.length + 1,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
       tasks: [],
       tags: []
     };

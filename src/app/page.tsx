@@ -1,12 +1,11 @@
 "use client";
 
-import Sidebar from "@/components/Sidebar";
-import MainApp from "@/components/MainApp";
-import { Call } from "@/types/calls";
-import { CallTag } from "@/types";
+import Sidebar from "@components/Sidebar";
+import MainApp from "@components/MainApp";
+import { Call, CallTag } from "@app/types/call";
 import { useEffect, useState } from "react";
-import { getCallsAPI, updateCallAPI } from "@/services/calls";
-import { getTagsAPI } from "@/services/tags";
+import { getCallsAPI, updateCallAPI } from "@services/calls";
+import { getTagsAPI } from "@services/tags";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -64,7 +63,7 @@ export default function Home() {
   return (
     <div className="grid grid-cols-5 grid-rows-1 gap-4 p-4 h-screen">
       <Sidebar calls={calls} setSelectedCall={setSelectedCall} updateCallsList={updateCallsList} />
-      <MainApp call={selectedCall} tags={tags} updateCall={updateCall} />
+      {selectedCall && <MainApp call={selectedCall} tags={tags} updateCall={updateCall} />}
     </div>
   );
 }

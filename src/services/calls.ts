@@ -1,4 +1,4 @@
-import { Call } from "@/types/calls";
+import { Call } from "@app/types/call";
 
 const API_URL = "http://localhost:3001/api";
 

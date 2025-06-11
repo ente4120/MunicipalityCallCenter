@@ -1,5 +1,5 @@
 export interface Call {
-    id: string;
+    id: number;
     name: string;
     createdAt: Date;
     updatedAt: Date;
@@ -8,14 +8,13 @@ export interface Call {
 }
 
 export interface CallTag {
-    id: string;
+    id: number;
     name: string;
-    tasks: CallTask[];
 }
 
 export interface CallTask {
-    id: string;
-    description: string;
+    id: number;
+    name: string;
     status: 'open' | 'in-progress'| 'completed';
     createdAt: Date;
     updatedAt: Date;

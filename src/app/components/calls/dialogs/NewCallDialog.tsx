@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Call } from '@/types/calls';
+import { Call } from '@/app/types/call';
 
 interface NewCallDialogProps {
     isOpen: boolean;

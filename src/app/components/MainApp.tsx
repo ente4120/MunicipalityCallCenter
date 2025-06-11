@@ -1,28 +1,27 @@
-import { Call } from "@/types/calls";
-import { CallTag } from "@/types/index";
-import { Task } from "@/types/tasks";
-import CallTask from "./calls/CallTasks";
+import { Call, CallTag, CallTask } from "@/app/types/call";
 import NewTaskDialog from "./calls/dialogs/NewTaskDialog";
 import { useState } from "react";
 import CallTags from "./calls/CallTags";
+import CallTasks from "./calls/CallTasks";
 
 export default function MainApp({ call, tags, updateCall }: { call: Call, tags: CallTag[], updateCall: (call: Call) => void}) {
     const [isNewTaskDialogOpen, setIsNewTaskDialogOpen] = useState(false);
 
-    const updateTask = (task: Task) => {
+    const updateTask = (task: CallTask) => {
         const updatedCall = {
             ...call,
-            tasks: call.tasks.map((t: Task) => t.id === task.id ? task : t)
+            tasks: call.tasks.map((t: CallTask) => t.id === task.id ? task : t)
         }
         updateCall(updatedCall);
     }
 
-    const handleAddTask = (newTask: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>) => {
-        const task: Task = {
+    const handleAddTask = (newTask: Omit<CallTask, 'id' | 'createdAt' | 'updatedAt'>) => {
+        const task: CallTask = {
             ...newTask,
             id: call.tasks.length + 1,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
+            status: 'open',
+            createdAt: new Date(),
+            updatedAt: new Date()
         };
 
         const updatedCall = {
@@ -33,10 +32,10 @@ export default function MainApp({ call, tags, updateCall }: { call: Call, tags: 
     };
 
     const handleTagsChange = (newTags: CallTag[]) => {
-        const updatedCall = {
+        const updatedCall: Call = {
             ...call,
             tags: newTags,
-            updatedAt: new Date().toISOString()
+            updatedAt: new Date()
         };
         updateCall(updatedCall);
     };
@@ -70,8 +69,8 @@ export default function MainApp({ call, tags, updateCall }: { call: Call, tags: 
                     </button>
                 </div>
                 <div className="flex flex-col gap-2 rounded-lg">
-                    {call.tasks.map((task: Task) => (
-                        <CallTask key={task.id} task={task} updateTask={updateTask} />
+                    {call.tasks.map((task: CallTask) => (
+                        <CallTasks key={task.id} callTask={task} updateCallTask={updateTask} />
                     ))}
                 </div>
 

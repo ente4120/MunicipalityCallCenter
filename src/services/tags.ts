@@ -1,4 +1,4 @@
-import { CallTag } from "@/types";
+import { CallTag } from "@/app/types/call";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
@@ -61,7 +61,7 @@ export const updateTagAPI = async (tag: CallTag): Promise<CallTag> => {
     }
 };
 
-export const createTagAPI = async (tag: Omit<CallTag, 'id'>): Promise<CallTag> => {
+export const createTagAPI = async (tag: Omit<CallTag, 'id'>): Promise<void> => {
     try {
         const response = await fetch(`${API_URL}/tags`, {
             method: 'POST',

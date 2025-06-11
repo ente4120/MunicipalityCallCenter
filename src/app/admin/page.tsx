@@ -2,16 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { getTagsAPI, createTagAPI, updateTagAPI } from '@/services/tags';
-
-interface TagData {
-    id: number;
-    name: string;
-}
+import { CallTag } from '@/app/types/call';
 
 export default function AdminPage() {
-    const [tags, setTags] = useState<TagData[]>([]);
-    const [newTag, setNewTag] = useState<TagData>({ id: 0, name: '' });
-    const [editingTag, setEditingTag] = useState<TagData | null>(null);
+    const [tags, setTags] = useState<CallTag[]>([]);
+    const [newTag, setNewTag] = useState<CallTag>({ id: 0, name: '' });
+    const [editingTag, setEditingTag] = useState<CallTag | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -51,13 +47,8 @@ export default function AdminPage() {
         if (!editingTag) return;
 
         try {
-            const response = await updateTagAPI(editingTag);
-
-            if (!response.ok) {
-                throw new Error('Failed to update tag');
-            }
-
-            const updatedTag = await response.json();
+            const updatedTag = await updateTagAPI(editingTag);
+            
             setTags(tags.map(tag => 
                 tag.id === updatedTag.id ? updatedTag : tag
             ));

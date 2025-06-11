@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Task } from '@/types/tasks';
+import { CallTask } from '@/app/types/call';
 
 interface NewTaskDialogProps {
     isOpen: boolean;
     onClose: () => void;
-    onAdd: (task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>) => void;
+    onAdd: (task: Omit<CallTask, 'id' | 'createdAt' | 'updatedAt'>) => void;
 }
 
 export default function NewTaskDialog({ isOpen, onClose, onAdd }: NewTaskDialogProps) {
