@@ -22,7 +22,10 @@ export default function Sidebar({ calls, setSelectedCall, updateCallsList }: { c
 
   return (
     <div className="flex flex-col h-full w-full p-4 gap-8">
-      <img src="logo.svg" alt="logo" />
+      <div className="flex flex-col justify-center items-center mb-7 gap-4">
+        <img src="/logo.svg" alt="logo" className="w-30 h-30" />
+        <span className="text-2xl font-bold">Municipal Call Center</span>
+      </div>
       <div className="flex flex-row justify-between items-center">
         <span>Calls</span>
         <button 

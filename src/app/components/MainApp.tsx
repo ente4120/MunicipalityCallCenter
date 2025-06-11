@@ -51,6 +51,7 @@ export default function MainApp({ call, tags, updateCall }: { call: Call, tags: 
             <div className="col-span-4 h-full w-full p-10 bg-zinc-100 rounded-lg flex flex-col gap-4">
                 <div className="flex justify-between items-center">
                     <div className="text-5xl font-bold">{call.name}</div>
+                    <img src="logo.svg" alt="logo" className="w-6 h-6" />
                 </div>
                 <div className="bg-stone-100 p-4 rounded-lg">
                     <CallTags 
