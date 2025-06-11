@@ -83,7 +83,7 @@ export default function AdminPage() {
                             type="text"
                             value={newTag.name}
                             onChange={(e) => setNewTag({ ...newTag, name: e.target.value })}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            className="mt-2 p-2 h-10 block w-full bg-stone-100 rounded-md "
                             required
                         />
                     </div>
