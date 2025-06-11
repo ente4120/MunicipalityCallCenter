@@ -4,7 +4,10 @@ import { Call } from '../types';
 const CallSchema = new Schema<Call>({
     id: { type: Number, required: true },
     name: { type: String, required: true },
-    tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
+    tags: [{
+        id: { type: Number, required: true },
+        name: { type: String, required: true },
+    }],
     tasks: [{
         id: { type: Number, required: true },
         name: { type: String, required: true },
