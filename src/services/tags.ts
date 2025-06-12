@@ -1,6 +1,6 @@
 import { CallTag } from "@/app/types/call";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_URL = process.env.API_URL || 'http://localhost:3001/api';
 
 export const getTagsAPI = async (): Promise<CallTag[]> => {
     try {
