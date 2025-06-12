@@ -73,6 +73,11 @@ export default function MainApp({ call, tags, updateCall }: { call: Call, tags: 
                     {call.tasks.map((task: CallTask) => (
                         <CallTasks key={task.id} callTask={task} updateCallTask={updateTask} />
                     ))}
+                    {call.tasks.length === 0 && (
+                        <div className="text-center text-gray-500">
+                            No tasks found
+                        </div>
+                    )}
                 </div>
 
                 <NewTaskDialog

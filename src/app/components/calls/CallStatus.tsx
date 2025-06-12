@@ -14,6 +14,12 @@ const statusDotColors = {
     'completed': 'fill-green-500',
 };
 
+const statusTexts = {
+    'open': 'Open',
+    'in-progress': 'In Progress',
+    'completed': 'Completed',
+}
+
 const statusOptions: Status[] = ['open', 'in-progress', 'completed'];
 
 export default function CallStatus({ currentStatus, onStatusChange }: CallStatusProps) {
@@ -28,7 +34,7 @@ export default function CallStatus({ currentStatus, onStatusChange }: CallStatus
                 <svg className="w-3 h-3" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="6" className={statusDotColors[currentStatus]} />
                 </svg>
-                {currentStatus}
+                {statusTexts[currentStatus]}
                 <svg
                     className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
@@ -54,7 +60,7 @@ export default function CallStatus({ currentStatus, onStatusChange }: CallStatus
                                 <svg className="w-3 h-3" viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="6" className={statusDotColors[status]} />
                                 </svg>
-                                {status}
+                                {statusTexts[status]}
                             </button>
                         ))}
                     </div>
