@@ -46,6 +46,7 @@ Create a `.env.local` file in the root directory with:
 ```
 MONGODB_URI=your_mongodb_uri
 API_URL=http://localhost:3001/api
+SERVER_PORT=3001
 ```
 
 4. Run the development server:

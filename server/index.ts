@@ -5,7 +5,7 @@ import { tagsRouter } from './routes/tags';
 import { connectDB } from './config/database';
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.SERVER_PORT || 3001;
 
 // Connect to MongoDB
 connectDB();
